@@ -43,16 +43,16 @@ namespace ServerApp
             this.clientActiTextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.clientInUseTextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.stopButton = new Guna.UI2.WinForms.Guna2Button();
+            this.hcmuslogoGridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // clientActiBalel
             // 
             this.clientActiBalel.AutoSize = true;
             this.clientActiBalel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientActiBalel.Location = new System.Drawing.Point(18, 94);
-            this.clientActiBalel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.clientActiBalel.Location = new System.Drawing.Point(24, 116);
             this.clientActiBalel.Name = "clientActiBalel";
-            this.clientActiBalel.Size = new System.Drawing.Size(170, 24);
+            this.clientActiBalel.Size = new System.Drawing.Size(216, 29);
             this.clientActiBalel.TabIndex = 2;
             this.clientActiBalel.Text = "Client activitives: ";
             // 
@@ -60,10 +60,9 @@ namespace ServerApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(536, 94);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(748, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 24);
+            this.label1.Size = new System.Drawing.Size(185, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Clients in use: ";
             // 
@@ -71,10 +70,9 @@ namespace ServerApp
             // 
             this.serverIPLabel.AutoSize = true;
             this.serverIPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serverIPLabel.Location = new System.Drawing.Point(18, 21);
-            this.serverIPLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.serverIPLabel.Location = new System.Drawing.Point(24, 26);
             this.serverIPLabel.Name = "serverIPLabel";
-            this.serverIPLabel.Size = new System.Drawing.Size(107, 24);
+            this.serverIPLabel.Size = new System.Drawing.Size(135, 29);
             this.serverIPLabel.TabIndex = 4;
             this.serverIPLabel.Text = "Server IP: ";
             // 
@@ -82,10 +80,9 @@ namespace ServerApp
             // 
             this.portServerLabel.AutoSize = true;
             this.portServerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portServerLabel.Location = new System.Drawing.Point(284, 21);
-            this.portServerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.portServerLabel.Location = new System.Drawing.Point(379, 26);
             this.portServerLabel.Name = "portServerLabel";
-            this.portServerLabel.Size = new System.Drawing.Size(59, 24);
+            this.portServerLabel.Size = new System.Drawing.Size(75, 29);
             this.portServerLabel.TabIndex = 5;
             this.portServerLabel.Text = "Port: ";
             // 
@@ -103,11 +100,11 @@ namespace ServerApp
             this.startButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startButton.ForeColor = System.Drawing.Color.Black;
             this.startButton.HoverState.Parent = this.startButton;
-            this.startButton.Location = new System.Drawing.Point(441, 10);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startButton.Location = new System.Drawing.Point(588, 12);
+            this.startButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.startButton.Name = "startButton";
             this.startButton.ShadowDecoration.Parent = this.startButton;
-            this.startButton.Size = new System.Drawing.Size(91, 46);
+            this.startButton.Size = new System.Drawing.Size(121, 57);
             this.startButton.TabIndex = 1;
             this.startButton.Text = "Start";
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
@@ -128,14 +125,15 @@ namespace ServerApp
             this.ipserverTextbox.ForeColor = System.Drawing.Color.DimGray;
             this.ipserverTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ipserverTextbox.HoverState.Parent = this.ipserverTextbox;
-            this.ipserverTextbox.Location = new System.Drawing.Point(116, 10);
-            this.ipserverTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ipserverTextbox.Location = new System.Drawing.Point(155, 12);
+            this.ipserverTextbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ipserverTextbox.Name = "ipserverTextbox";
             this.ipserverTextbox.PasswordChar = '\0';
             this.ipserverTextbox.PlaceholderText = "";
             this.ipserverTextbox.SelectedText = "";
+            this.ipserverTextbox.SelectionStart = 9;
             this.ipserverTextbox.ShadowDecoration.Parent = this.ipserverTextbox;
-            this.ipserverTextbox.Size = new System.Drawing.Size(162, 46);
+            this.ipserverTextbox.Size = new System.Drawing.Size(216, 57);
             this.ipserverTextbox.TabIndex = 10;
             // 
             // portTextbox
@@ -154,34 +152,35 @@ namespace ServerApp
             this.portTextbox.ForeColor = System.Drawing.Color.DimGray;
             this.portTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.portTextbox.HoverState.Parent = this.portTextbox;
-            this.portTextbox.Location = new System.Drawing.Point(336, 10);
-            this.portTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.portTextbox.Location = new System.Drawing.Point(448, 12);
+            this.portTextbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.portTextbox.Name = "portTextbox";
             this.portTextbox.PasswordChar = '\0';
             this.portTextbox.PlaceholderText = "";
             this.portTextbox.SelectedText = "";
             this.portTextbox.SelectionStart = 4;
             this.portTextbox.ShadowDecoration.Parent = this.portTextbox;
-            this.portTextbox.Size = new System.Drawing.Size(91, 46);
+            this.portTextbox.Size = new System.Drawing.Size(121, 57);
             this.portTextbox.TabIndex = 10;
             // 
             // hcmuslogoGridPanel
             // 
-            this.hcmuslogoGridPanel.Location = new System.Drawing.Point(716, 10);
-            this.hcmuslogoGridPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hcmuslogoGridPanel.Controls.Add(this.hcmuslogoPanel);
+            this.hcmuslogoGridPanel.Location = new System.Drawing.Point(1009, 11);
+            this.hcmuslogoGridPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hcmuslogoGridPanel.Name = "hcmuslogoGridPanel";
             this.hcmuslogoGridPanel.ShadowDecoration.Parent = this.hcmuslogoGridPanel;
-            this.hcmuslogoGridPanel.Size = new System.Drawing.Size(105, 98);
+            this.hcmuslogoGridPanel.Size = new System.Drawing.Size(140, 121);
             this.hcmuslogoGridPanel.TabIndex = 9;
             // 
             // hcmuslogoPanel
             // 
             this.hcmuslogoPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hcmuslogoPanel.BackgroundImage")));
             this.hcmuslogoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.hcmuslogoPanel.Location = new System.Drawing.Point(716, 10);
-            this.hcmuslogoPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hcmuslogoPanel.Location = new System.Drawing.Point(0, 0);
+            this.hcmuslogoPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hcmuslogoPanel.Name = "hcmuslogoPanel";
-            this.hcmuslogoPanel.Size = new System.Drawing.Size(105, 98);
+            this.hcmuslogoPanel.Size = new System.Drawing.Size(140, 121);
             this.hcmuslogoPanel.TabIndex = 0;
             // 
             // exitButton
@@ -198,11 +197,11 @@ namespace ServerApp
             this.exitButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
             this.exitButton.HoverState.Parent = this.exitButton;
-            this.exitButton.Location = new System.Drawing.Point(721, 549);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Location = new System.Drawing.Point(961, 676);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.ShadowDecoration.Parent = this.exitButton;
-            this.exitButton.Size = new System.Drawing.Size(130, 46);
+            this.exitButton.Size = new System.Drawing.Size(173, 57);
             this.exitButton.TabIndex = 10;
             this.exitButton.Text = "Exit";
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -223,7 +222,8 @@ namespace ServerApp
             this.clientActiTextbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientActiTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.clientActiTextbox.HoverState.Parent = this.clientActiTextbox;
-            this.clientActiTextbox.Location = new System.Drawing.Point(22, 130);
+            this.clientActiTextbox.Location = new System.Drawing.Point(29, 160);
+            this.clientActiTextbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.clientActiTextbox.Multiline = true;
             this.clientActiTextbox.Name = "clientActiTextbox";
             this.clientActiTextbox.PasswordChar = '\0';
@@ -231,7 +231,7 @@ namespace ServerApp
             this.clientActiTextbox.ReadOnly = true;
             this.clientActiTextbox.SelectedText = "";
             this.clientActiTextbox.ShadowDecoration.Parent = this.clientActiTextbox;
-            this.clientActiTextbox.Size = new System.Drawing.Size(484, 414);
+            this.clientActiTextbox.Size = new System.Drawing.Size(714, 510);
             this.clientActiTextbox.TabIndex = 11;
             this.clientActiTextbox.TextChanged += new System.EventHandler(this.clientActiTextbox_TextChanged);
             // 
@@ -251,7 +251,8 @@ namespace ServerApp
             this.clientInUseTextbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientInUseTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.clientInUseTextbox.HoverState.Parent = this.clientInUseTextbox;
-            this.clientInUseTextbox.Location = new System.Drawing.Point(548, 130);
+            this.clientInUseTextbox.Location = new System.Drawing.Point(753, 160);
+            this.clientInUseTextbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.clientInUseTextbox.Multiline = true;
             this.clientInUseTextbox.Name = "clientInUseTextbox";
             this.clientInUseTextbox.PasswordChar = '\0';
@@ -259,7 +260,7 @@ namespace ServerApp
             this.clientInUseTextbox.ReadOnly = true;
             this.clientInUseTextbox.SelectedText = "";
             this.clientInUseTextbox.ShadowDecoration.Parent = this.clientInUseTextbox;
-            this.clientInUseTextbox.Size = new System.Drawing.Size(303, 414);
+            this.clientInUseTextbox.Size = new System.Drawing.Size(382, 510);
             this.clientInUseTextbox.TabIndex = 13;
             this.clientInUseTextbox.TextChanged += new System.EventHandler(this.clientInUseTextbox_TextChanged);
             // 
@@ -278,26 +279,25 @@ namespace ServerApp
             this.stopButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stopButton.ForeColor = System.Drawing.Color.Black;
             this.stopButton.HoverState.Parent = this.stopButton;
-            this.stopButton.Location = new System.Drawing.Point(548, 10);
-            this.stopButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stopButton.Location = new System.Drawing.Point(731, 12);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stopButton.Name = "stopButton";
             this.stopButton.ShadowDecoration.Parent = this.stopButton;
-            this.stopButton.Size = new System.Drawing.Size(91, 46);
+            this.stopButton.Size = new System.Drawing.Size(121, 57);
             this.stopButton.TabIndex = 2;
             this.stopButton.Text = "Stop";
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // FServerApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.ClientSize = new System.Drawing.Size(873, 609);
+            this.ClientSize = new System.Drawing.Size(1161, 750);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.clientInUseTextbox);
             this.Controls.Add(this.clientActiTextbox);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.hcmuslogoPanel);
             this.Controls.Add(this.hcmuslogoGridPanel);
             this.Controls.Add(this.portTextbox);
             this.Controls.Add(this.ipserverTextbox);
@@ -308,12 +308,14 @@ namespace ServerApp
             this.Controls.Add(this.clientActiBalel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(889, 657);
-            this.MinimumSize = new System.Drawing.Size(889, 597);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1179, 798);
+            this.MinimumSize = new System.Drawing.Size(1179, 724);
             this.Name = "FServerApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GOLD RATE (Server)";
+            this.Load += new System.EventHandler(this.FServerApp_Load);
+            this.hcmuslogoGridPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -35,13 +35,14 @@ namespace ServerApp
                     Socket client = server.Accept();
                     clientList.Add(client);
 
-                    clientActiTextbox.Text += $"{client.RemoteEndPoint.ToString()} connected.{Environment.NewLine}";
+                    clientActiTextbox.Text += $"{client.RemoteEndPoint.ToString()} connected at {DateTime.Now.ToString()} {Environment.NewLine}";
                     
-                    Thread clientProcess = new Thread(myThreadClient);
+                    Thread clientProcess = new Thread(clientThread);
                     clientProcess.IsBackground = true;
                     clientProcess.Start(client);
 
-                    clientInUseTextbox.AppendText(client.RemoteEndPoint.ToString());
+                    //clientInUseTextbox.AppendText(client.RemoteEndPoint.ToString());
+                    clientInUseTextbox.AppendText(Environment.NewLine);
                 }
                 catch
                 {
@@ -49,28 +50,31 @@ namespace ServerApp
                 }
             }
         }
-        private void myThreadClient(object obj)
+        private void clientThread(object obj)
         {
             Socket client = (Socket)obj;
 
             try
             {
+                string userName = "";
+                string passWord = "";
                 while (true)
                 {
                     byte[] data = new byte[1024];
-
                     int receive = client.Receive(data);
-
                     string mess = (String)Deserialize(data);
-
-                    clientActiTextbox.Text += $"{mess}{Environment.NewLine}";
-
+                    
                     if (mess[0] == '1') // check login successfully ?
                     {
                         int index = mess.IndexOf('@');
                         string username = mess.Substring(1, index - 1);
-                        string password = mess.Substring(index + 1);
+                        userName = username;
 
+                        string password = mess.Substring(index + 1);
+                        passWord = password;
+                        clientActiTextbox.Text += $"{username}@{password} log in at {DateTime.Now.ToString()} {Environment.NewLine}";
+                        clientInUseTextbox.Text += $"{client.RemoteEndPoint.ToString()}:{userName}@{passWord} {Environment.NewLine}";
+                        
                         if (sqlManager.CheckAccount(username, password))
                         {
                             string s = "success";
@@ -87,7 +91,7 @@ namespace ServerApp
                         int index = mess.IndexOf('@');
                         string username = mess.Substring(1, index - 1);
                         string password = mess.Substring(index + 1);
-
+                        clientActiTextbox.Text += $"{username}@{password} sign up at {DateTime.Now.ToString()} {Environment.NewLine}";
                         if (sqlManager.CheckAccountRegister(username, password))
                         {
                             string s = "success register";
@@ -104,7 +108,9 @@ namespace ServerApp
                         //Parse dd/mm/yyyy to yyyymmdd
                         string s = mess.Substring(1);
                         string[] ss = s.Split('/');
+                       
                         s = "";
+                        //clientActiTextbox.Text += $"{client.RemoteEndPoint} requests load data of {mess.Substring(1)}";
                         foreach(string ss2 in ss)
                         {
                             s = ss2 + s;
@@ -143,7 +149,7 @@ namespace ServerApp
                         s = ss[2] + ss[0] + ss[1];
                         DataTable dt = sqlManager.GetDataTable_Date(s);
                         string message = "";
-
+                        clientActiTextbox.Text += $"{userName.ToString()} requests load data of {mess.Substring(1)} at {DateTime.Now.ToString()} {Environment.NewLine}";
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
                             //id,type,brand,company,buy,sell,updated
@@ -166,7 +172,8 @@ namespace ServerApp
                             //ip and port = RemoteEndPoint
                             if (item.RemoteEndPoint.ToString() == client.RemoteEndPoint.ToString())
                             {
-                                clientActiTextbox.Text += $"{client.RemoteEndPoint.ToString()} is disconnect{Environment.NewLine}";
+                                clientActiTextbox.Text += $"{userName.ToString()} is disconnected at {DateTime.Now.ToString()} {Environment.NewLine}";
+                       
                             }
                         }
                     }
@@ -335,6 +342,14 @@ namespace ServerApp
         private void clientInUseTextbox_TextChanged(object sender, EventArgs e)
         {
             clientInUseTextbox.ScrollBars = ScrollBars.Vertical;
+        }
+
+        private void FServerApp_Load(object sender, EventArgs e)
+        {
+
+
+
+
         }
 
         //private void clientInUseTextbox_Textchanged(object sender, EventArgs e)

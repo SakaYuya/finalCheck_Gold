@@ -75,10 +75,17 @@ namespace ClientApp
         {
             if(ConnectToServer())
             {
-                this.Hide();
-                FClientLogIn fLogin = new FClientLogIn(client);
-                fLogin.ShowDialog();
-                this.Show();
+                try
+                {
+                    this.Hide();
+                    FClientLogIn fLogin = new FClientLogIn(client);
+                    fLogin.ShowDialog();
+                    this.Show();
+                }
+                catch
+                {
+                    Application.Exit();
+                }
             }
             else
             {
