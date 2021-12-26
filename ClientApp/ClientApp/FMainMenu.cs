@@ -206,10 +206,15 @@ namespace ClientApp
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            // send header "5" to disconnect
-            client.Send(Serialize("5"));
-            client.Close();
-            Application.Exit();
+            try
+            {
+                // send header "5" to disconnect
+                client.Send(Serialize("5"));
+                client.Close();
+                Application.Exit();
+            }
+            catch
+            { }
         }
 
         private void guna2ComboBox1_Click(object sender, EventArgs e)
