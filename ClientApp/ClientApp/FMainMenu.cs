@@ -143,13 +143,12 @@ namespace ClientApp
             }
             else if(mess[0] == '7')
             {
-                //Delete all value in Combobox
-                guna2ComboBox1.Items.Clear();
-
-                mess = mess.Substring(2); //Go header '7,'
+                mess = mess.Substring(2); //Delete header '7,'
                 string[] type = mess.Split(',');
+                int i = 1;
                 foreach (string typeOption in type) {
-                    guna2ComboBox1.Items.Add(typeOption);
+                    guna2ComboBox1.Items.Insert(i,typeOption);
+                    i++;
                 }
             }
             else if (mess == "no result")

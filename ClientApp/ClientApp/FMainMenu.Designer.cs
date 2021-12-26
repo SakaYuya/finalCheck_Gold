@@ -93,7 +93,7 @@ namespace ClientApp
             this.guna2ComboBox1.BorderColor = System.Drawing.Color.White;
             this.guna2ComboBox1.BorderRadius = 10;
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownHeight = 300;
+            this.guna2ComboBox1.DropDownHeight = 400;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox1.DropDownWidth = 200;
             this.guna2ComboBox1.FillColor = System.Drawing.Color.Khaki;
@@ -105,11 +105,19 @@ namespace ClientApp
             this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
             this.guna2ComboBox1.IntegralHeight = false;
             this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
+            "--All--",
+            "",
+            "",
+            "",
+            "",
+            ""});
             this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
             this.guna2ComboBox1.Location = new System.Drawing.Point(341, 146);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
             this.guna2ComboBox1.Size = new System.Drawing.Size(113, 36);
+            this.guna2ComboBox1.StartIndex = 0;
             this.guna2ComboBox1.TabIndex = 3;
             this.guna2ComboBox1.Tag = "";
             this.guna2ComboBox1.SelectedValueChanged += new System.EventHandler(this.guna2ComboBox1_SelectedValueChanged);

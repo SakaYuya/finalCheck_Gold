@@ -221,7 +221,7 @@ namespace ServerApp
 
         public string getGoldType()
         {
-            string ans = "7";
+            string ans = "";
             //Ket noi database
             connection.Open();
             // Tạo đối tượng SqlCommand
@@ -238,7 +238,7 @@ namespace ServerApp
             // Kiểm tra có kết quả trả về
             if (reader.HasRows)
             {
-                // Đọc từng dòng tập kết quả: ans = 7,type1,type2,...,typeN
+                // Đọc từng dòng tập kết quả: ans = 7,--All--,type1,type2,...,typeN
                 while (reader.Read())
                 {
                     string type = reader["type"].ToString();

@@ -175,8 +175,16 @@ namespace ServerApp
                         int index = mess.IndexOf('@');
                         string s = mess.Substring(1, index - 1);
                         string type1 = mess.Substring(index + 1);
-                        DataTable dt = sqlManager.GetDataTableDate_Type(s, type1);
-
+                        //Get information
+                        DataTable dt;
+                        if (type1 == "--All--")
+                        {
+                            dt = sqlManager.GetDataTable_Date(s);
+                        }
+                        else
+                        {
+                            dt = sqlManager.GetDataTableDate_Type(s, type1);
+                        }
                         if (dt.Rows.Count == 0)
                         {
                             foreach (Socket item in clientList)
@@ -190,6 +198,7 @@ namespace ServerApp
                             continue;
                         }
 
+                        //Convert information to message
                         string message = "";
 
                         for (int i = 0; i < dt.Rows.Count; i++)
@@ -209,10 +218,9 @@ namespace ServerApp
                     }
                     else if (mess[0] == '7') //Get gold type
                     {
-                        string message = "7";
-                        message += sqlManager.getGoldType();
+                        string message = sqlManager.getGoldType();
                         //Send all type of gold to client with header "7"
-                        SendMessage(client, message);
+                        SendMessage(client, $"7{message}");
                     }
                     else if(mess[0] == '8')
                     {
