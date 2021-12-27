@@ -13,7 +13,7 @@ namespace ServerApp
 {
     class SQLManager
     {
-        private SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-NGV0MUQJ;Initial Catalog=GOLDPRICE;Integrated Security=True");
+        private SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-5K1J6A0;Initial Catalog=GOALRATE;Integrated Security=True");
 
         public bool CheckAccount(string username, string password)
         {

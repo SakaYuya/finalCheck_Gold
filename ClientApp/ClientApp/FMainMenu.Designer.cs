@@ -35,7 +35,6 @@ namespace ClientApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMainMenu));
             this.goldRateLabel = new System.Windows.Forms.Label();
             this.datetimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.goldDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.buy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sell = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@ namespace ClientApp
             this.exitButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.goldDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,43 +85,6 @@ namespace ClientApp
             this.datetimePicker.TabIndex = 2;
             this.datetimePicker.Value = new System.DateTime(2021, 12, 24, 0, 0, 0, 0);
             this.datetimePicker.ValueChanged += new System.EventHandler(this.datetimePicker_ValueChanged);
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.AllowDrop = true;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.White;
-            this.guna2ComboBox1.BorderRadius = 10;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownHeight = 400;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.DropDownWidth = 200;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.Khaki;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.IntegralHeight = false;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "--All--",
-            "",
-            "",
-            "",
-            "",
-            ""});
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(341, 146);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(113, 36);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 3;
-            this.guna2ComboBox1.Tag = "";
-            this.guna2ComboBox1.SelectedValueChanged += new System.EventHandler(this.guna2ComboBox1_SelectedValueChanged);
-            this.guna2ComboBox1.Click += new System.EventHandler(this.guna2ComboBox1_Click);
             // 
             // goldDataGridView
             // 
@@ -238,7 +201,7 @@ namespace ClientApp
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.searchButton.ForeColor = System.Drawing.Color.Black;
             this.searchButton.HoverState.Parent = this.searchButton;
-            this.searchButton.Location = new System.Drawing.Point(527, 137);
+            this.searchButton.Location = new System.Drawing.Point(609, 137);
             this.searchButton.Name = "searchButton";
             this.searchButton.ShadowDecoration.Parent = this.searchButton;
             this.searchButton.Size = new System.Drawing.Size(156, 45);
@@ -260,7 +223,7 @@ namespace ClientApp
             this.resetButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetButton.ForeColor = System.Drawing.Color.Black;
             this.resetButton.HoverState.Parent = this.resetButton;
-            this.resetButton.Location = new System.Drawing.Point(734, 137);
+            this.resetButton.Location = new System.Drawing.Point(788, 138);
             this.resetButton.Name = "resetButton";
             this.resetButton.ShadowDecoration.Parent = this.resetButton;
             this.resetButton.Size = new System.Drawing.Size(141, 45);
@@ -282,7 +245,7 @@ namespace ClientApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(367, 118);
+            this.label1.Location = new System.Drawing.Point(318, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 9;
@@ -355,6 +318,43 @@ namespace ClientApp
             this.label3.TabIndex = 17;
             this.label3.Text = "username:";
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.AllowDrop = true;
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.White;
+            this.guna2ComboBox1.BorderRadius = 10;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownHeight = 400;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.DropDownWidth = 200;
+            this.guna2ComboBox1.FillColor = System.Drawing.Color.Khaki;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.IntegralHeight = false;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
+            "--All--",
+            "",
+            "",
+            "",
+            "",
+            ""});
+            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(286, 146);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Size = new System.Drawing.Size(113, 36);
+            this.guna2ComboBox1.StartIndex = 0;
+            this.guna2ComboBox1.TabIndex = 3;
+            this.guna2ComboBox1.Tag = "";
+            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            this.guna2ComboBox1.Click += new System.EventHandler(this.guna2ComboBox1_Click);
+            // 
             // FMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -389,7 +389,6 @@ namespace ClientApp
         #endregion
         private System.Windows.Forms.Label goldRateLabel;
         private Guna.UI2.WinForms.Guna2DateTimePicker datetimePicker;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2DataGridView goldDataGridView;
         private Guna.UI2.WinForms.Guna2Button searchButton;
         private Guna.UI2.WinForms.Guna2Button resetButton;
@@ -405,5 +404,6 @@ namespace ClientApp
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }

@@ -23,6 +23,11 @@ namespace ClientApp
             this.client = client;
             InitializeComponent();
             label2.Text = user;
+
+            //Create and start thread
+            Thread listenServer = new Thread(ReceiveMessage);
+            listenServer.IsBackground = true;
+            listenServer.Start();
         }
 
        /* IPEndPoint server;
@@ -60,8 +65,6 @@ namespace ClientApp
                 client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             }
         }*/
-
-
         private void loadGridView(object sender) // MainMenu
         {
             client.Send(Serialize($"3{DateTime.Now.ToString("dd/MM/yyyy")}")); //send header 3 to load datagridview now
@@ -106,6 +109,12 @@ namespace ClientApp
             {
                 MessageBox.Show("Your username has been already exist");
             }
+            else if (mess == "Close")
+            {
+                //Server is stopped
+                client.Close();
+                statusTextBox.Text += "Server is stopped\r\n";
+            }
             else if (mess[0] == '1') // Load data into data grid view
             {
                 goldDataGridView.Rows.Clear();
@@ -146,10 +155,19 @@ namespace ClientApp
                 mess = mess.Substring(2); //Delete header '7,'
                 string[] type = mess.Split(',');
                 int i = 1;
-                foreach (string typeOption in type) {
-                    guna2ComboBox1.Items.Insert(i,typeOption);
-                    i++;
+                //Show type
+                try
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        foreach (string typeOption in type)
+                        {
+                            guna2ComboBox1.Items.Insert(i, typeOption);
+                            i++;
+                        }
+                    }));
                 }
+                catch { };
             }
             else if (mess == "no result")
             {
@@ -161,14 +179,14 @@ namespace ClientApp
         {
             try
             {
-                //while (true)
-                //{
+                while (true)
+                {
                     byte[] buff = new byte[1024 * 5000];
                     int rec = client.Receive(buff);
                     string mess = (String)Deserialize(buff);
 
                     CheckMessage(mess);
-                //}
+                }
             }
             catch
             {
@@ -201,7 +219,7 @@ namespace ClientApp
         {
             //send header "3" to get information of day request
             client.Send(Serialize($"4{datetimePicker.Text}"));
-            ReceiveMessage();
+            //ReceiveMessage();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -220,24 +238,19 @@ namespace ClientApp
         private void guna2ComboBox1_Click(object sender, EventArgs e)
         {
             client.Send(Serialize("7")); // send header "7" to get type of gold
-            ReceiveMessage();
+            //ReceiveMessage();
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
             //Reset dateTimePicker and combobox type
             datetimePicker.Value = DateTime.Now;
-            guna2ComboBox1.SelectedItem = "";
-            //load grid view
-            loadGridView(client);
-            ReceiveMessage();
-        }
-
-        private void guna2ComboBox1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //Send header '8' to get all formation of type gold request
-            client.Send(Serialize($"8{guna2ComboBox1.Text}"));
-            ReceiveMessage();
+            guna2ComboBox1.SelectedIndex = 0;
+            //Send header 6 and date, type to get information
+            string date = datetimePicker.Text;
+            string type = guna2ComboBox1.SelectedItem.ToString();
+            client.Send(Serialize($"6{date}@{type}"));
+            //ReceiveMessage();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -251,8 +264,14 @@ namespace ClientApp
             string type = guna2ComboBox1.SelectedItem.ToString();
             //Send and receive message
             client.Send(Serialize($"6{date}@{type}"));
-            ReceiveMessage();
+            //ReceiveMessage();
         }
 
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Send header '8' to get all formation of type gold request
+            client.Send(Serialize($"8{guna2ComboBox1.Text}"));
+            //ReceiveMessage();
+        }
     }
 }

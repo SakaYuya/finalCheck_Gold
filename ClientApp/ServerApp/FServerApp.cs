@@ -233,7 +233,15 @@ namespace ServerApp
                     {
                         //Get all information of type gold request
                         string s = mess.Substring(1);
-                        DataTable dt = sqlManager.GetDataTable_Type(s);
+                        DataTable dt;
+                        if (s == "--All--")
+                        {
+                            dt = sqlManager.GetDataTable();
+                        }
+                        else
+                        {
+                            dt = sqlManager.GetDataTable_Type(s);
+                        }
                         string message = "";
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
@@ -310,7 +318,7 @@ namespace ServerApp
             BinaryFormatter formatter = new BinaryFormatter();
 
             return formatter.Deserialize(stream);
-        }
+       }
 
         private void startButton_Click(object sender, EventArgs e)
         {
@@ -330,6 +338,13 @@ namespace ServerApp
 
         private void stopButton_Click(object sender, EventArgs e)
         {
+            //Send message "Close" to all client
+            foreach (Socket item in clientList)
+            {                                
+                byte[] msg = Serialize("Close");
+                item.Send(msg);
+            }
+            //Handle GUI
             server.Close();
             clientActiTextbox.AppendText("Server stop !!!");
             clientActiTextbox.AppendText(Environment.NewLine);
